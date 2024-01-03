@@ -17,7 +17,5 @@
 <resources>
 
   <style name="Theme.AvatarPicker" parent="android:Theme.Material.Light.NoActionBar" />
-  <style name="Theme.AvatarPickerAppCompat" parent="Theme.AppCompat.DayNight.NoActionBar" />
-  <style name="Theme.ComposeDialog" parent="android:Theme.Material.Dialog" />
 
 </resources>
