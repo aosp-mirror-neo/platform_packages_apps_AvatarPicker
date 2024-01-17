@@ -39,6 +39,6 @@
   <!-- Button label for generic Done action, to be pressed when an action has been completed [CHAR LIMIT=20] -->
   <string name="done">Done</string>
   <!-- Name of file to hold result of bitmap which is exposed to settings app -->
-  <string name="result_file_name">temp</string>
+  <string name="result_file_name" translatable="false">temp</string>
 
 </resources>
