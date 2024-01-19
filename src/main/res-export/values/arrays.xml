@@ -25,6 +25,6 @@
     </string-array>
 
     <string-array name="grant_read_uri_permissions_packages">
-        <item name="settings">com.android.settings</item>
+        <item name="settings"  translatable="false">com.android.settings</item>
     </string-array>
 </resources>
