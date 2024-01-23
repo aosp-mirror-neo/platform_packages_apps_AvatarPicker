@@ -71,7 +71,7 @@ android_app {
     privileged: true,
 
     optimize: {
-        enabled: false,
+        enabled: true,
     },
     static_libs: [
             "AvatarProviderLib",
