@@ -40,8 +40,6 @@
     </intent-filter>
     </activity>
 
-    <receiver android:name=".AvatarSelectionResult"  android:exported="true">
-    </receiver>
     <provider
         android:name="androidx.core.content.FileProvider"
         android:authorities="com.android.avatarpicker.tempprovider"

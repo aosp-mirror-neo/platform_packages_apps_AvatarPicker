@@ -17,6 +17,7 @@
 package com.android.avatarpicker
 
 import android.app.Application
+import android.content.Intent
 import com.android.avatarpicker.data.ColoredIconsRepository
 import com.android.avatarpicker.data.IllustrationsRepository
 import com.android.avatarpicker.data.MediaRepository
@@ -31,7 +32,7 @@ class AvatarPickerApp : Application(), AvatarProviderApp {
     private var _resultHandler: ResultHandler? = null
     private val _itemComposer = ItemViewComposerImpl()
 
-    override fun getGroupedSelectableItems() =
+    override fun getGroupedSelectableItems(intent: Intent) =
         _groupedSelectableItems ?: GroupedSelectableItemsUseCaseImpl(
             MediaRepository(), ColoredIconsRepository(resources), IllustrationsRepository(resources)
         ).also { _groupedSelectableItems = it }
