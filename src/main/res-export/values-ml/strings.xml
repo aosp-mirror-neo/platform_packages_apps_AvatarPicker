@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Copyright (c) 2023, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- no translation found for app_name (8177270961671323697) -->
+    <skip />
+    <!-- no translation found for avatar_picker_title (557920681111084237) -->
+    <skip />
+    <string name="user_image_take_photo" msgid="95128854106654908">"ഒരു ഫോട്ടോ എടുക്കുക"</string>
+    <string name="user_image_choose_photo" msgid="1705074212740055639">"ഒരു ചിത്രം തിരഞ്ഞെടുക്കുക"</string>
+    <string name="user_image_photo_selector" msgid="6810039483906384177">"ഫോട്ടോ തിരഞ്ഞെടുക്കുക"</string>
+    <string name="default_user_icon_description" msgid="102085856940412685">"ഡിഫോൾട്ട് ഉപയോക്തൃ ഐക്കൺ"</string>
+    <!-- no translation found for cancel (939074129054561480) -->
+    <skip />
+    <!-- no translation found for back (9180928429284474094) -->
+    <skip />
+    <!-- no translation found for done (3529937494606458545) -->
+    <skip />
+</resources>
