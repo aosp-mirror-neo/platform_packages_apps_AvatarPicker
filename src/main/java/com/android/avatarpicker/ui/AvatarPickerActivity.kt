@@ -44,14 +44,13 @@ import com.android.avatarpicker.ui.theme.AvatarPickerTheme
 
 class AvatarPickerActivity : ComponentActivity() {
 
-
     @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
         val activityViewModel = (application as AvatarProviderApp).let {
-            ActivityViewModel(it.getGroupedSelectableItems(), it.getResultHandler())
+            ActivityViewModel(it.getGroupedSelectableItems(intent), it.getResultHandler())
         }
 
         setContent {

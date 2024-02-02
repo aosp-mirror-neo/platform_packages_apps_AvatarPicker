@@ -16,13 +16,14 @@
 
 package com.android.avatarpicker
 
+import android.content.Intent
 import com.android.avatarpicker.domain.GroupedSelectableItemsUseCase
 import com.android.avatarpicker.ui.ResultHandler
 import com.android.avatarpicker.ui.details.items.ItemViewComposer
 
 
 interface AvatarProviderApp {
-    fun getGroupedSelectableItems(): GroupedSelectableItemsUseCase
+    fun getGroupedSelectableItems(intent: Intent): GroupedSelectableItemsUseCase
     fun getResultHandler(): ResultHandler
     fun getItemViewComposer(): ItemViewComposer
 }

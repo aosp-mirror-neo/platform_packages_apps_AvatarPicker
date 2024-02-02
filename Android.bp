@@ -24,8 +24,7 @@ android_library {
     "src/main/java/com/android/avatarpicker/domain/*.kt",
     "src/main/java/com/android/avatarpicker/ui/*.kt",
     "src/main/java/com/android/avatarpicker/ui/**/*.kt",
-    "src/main/java/com/android/avatarpicker/AvatarProviderApp.kt",
-    "src/main/java/com/android/avatarpicker/AvatarSelectionResult.kt"],
+    "src/main/java/com/android/avatarpicker/AvatarProviderApp.kt"],
 
     resource_dirs: ["src/main/res-export"],
 
