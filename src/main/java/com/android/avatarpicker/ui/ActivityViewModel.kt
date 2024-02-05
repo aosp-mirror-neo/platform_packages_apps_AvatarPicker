@@ -25,6 +25,6 @@ import com.android.avatarpicker.ui.info.InfoViewModel
 class ActivityViewModel(useCase: GroupedSelectableItemsUseCase, val resultHandler: ResultHandler) :
     ViewModel() {
     val infoViewModel =
-        InfoViewModel(R.drawable.ic_account_circle_outline, R.string.avatar_picker_title)
+        InfoViewModel(useCase, R.drawable.ic_account_circle_outline, R.string.avatar_picker_title)
     val detailsViewModel = DetailsViewModel(useCase, resultHandler)
 }

@@ -25,7 +25,7 @@ class ColoredIconsRepository(private val resources: Resources) {
     suspend fun getItems(): List<ResourceEntity> =
         UserIcons.getUserIconColors(resources).map { color ->
             ResourceEntity(
-                R.drawable.ic_account_circle_outline, R.string.default_user_icon_description, color
+                R.drawable.ic_account_circle_filled, R.string.default_user_icon_description, color
             )
         }
 }
