@@ -20,5 +20,6 @@ import com.android.avatarpicker.ui.details.items.SelectableType
 
 interface GroupedSelectableItemsUseCase {
     suspend operator fun invoke(): List<List<SelectableType>>
+    suspend fun description(): String?
 }
 

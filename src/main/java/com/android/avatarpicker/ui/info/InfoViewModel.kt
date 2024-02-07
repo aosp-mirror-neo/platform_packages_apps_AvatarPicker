@@ -18,5 +18,22 @@ package com.android.avatarpicker.ui.info
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.android.avatarpicker.domain.GroupedSelectableItemsUseCase
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
-class InfoViewModel(@DrawableRes val icon: Int, @StringRes val titleId: Int)
+class InfoViewModel(private val useCase: GroupedSelectableItemsUseCase, @DrawableRes val icon: Int, @StringRes val titleId: Int) : ViewModel() {
+    private var _description: MutableStateFlow<String?> = MutableStateFlow(null)
+    val description = _description.asStateFlow()
+
+    init {
+        viewModelScope.launch {
+            _description.update { useCase.description() }
+        }
+    }
+
+}

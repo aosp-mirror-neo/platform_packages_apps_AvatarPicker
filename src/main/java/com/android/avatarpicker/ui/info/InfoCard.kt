@@ -41,4 +41,11 @@ fun InfoCard(model: InfoViewModel) {
         text = stringResource(id = model.titleId),
         style = MaterialTheme.typography.displayMedium,
     )
+    (model.description).value?.let { desc ->
+        Text(
+            modifier = Modifier.padding(top = 24.dp),
+            text = desc,
+            style = MaterialTheme.typography.bodyLarge,
+        )
+    }
 }

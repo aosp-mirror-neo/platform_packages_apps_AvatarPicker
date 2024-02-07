@@ -46,4 +46,6 @@ class GroupedSelectableItemsUseCaseImpl(
             return@withContext listOf(media + icons)
         }
     }
+
+    override suspend fun description() = withContext(dispatcher) { null }
 }
