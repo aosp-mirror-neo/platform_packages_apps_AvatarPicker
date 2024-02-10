@@ -19,18 +19,13 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_name (8177270961671323697) -->
-    <skip />
-    <!-- no translation found for avatar_picker_title (557920681111084237) -->
-    <skip />
+    <string name="app_name" msgid="8177270961671323697">"अवतार पिकर"</string>
+    <string name="avatar_picker_title" msgid="557920681111084237">"कुनै फोटो छनौट गर्नुहोस्"</string>
     <string name="user_image_take_photo" msgid="95128854106654908">"फोटो खिच्नुहोस्"</string>
     <string name="user_image_choose_photo" msgid="1705074212740055639">"कुनै फोटो छनौट गर्नुहोस्"</string>
     <string name="user_image_photo_selector" msgid="6810039483906384177">"फोटो चयन गर्नुहोस्‌"</string>
     <string name="default_user_icon_description" msgid="102085856940412685">"प्रयोगकर्ताको डिफल्ट आइकन"</string>
-    <!-- no translation found for cancel (939074129054561480) -->
-    <skip />
-    <!-- no translation found for back (9180928429284474094) -->
-    <skip />
-    <!-- no translation found for done (3529937494606458545) -->
-    <skip />
+    <string name="cancel" msgid="939074129054561480">"रद्द गर्नुहोस्"</string>
+    <string name="back" msgid="9180928429284474094">"पछाडि"</string>
+    <string name="done" msgid="3529937494606458545">"पूरा भयो"</string>
 </resources>
