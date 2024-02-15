@@ -1,0 +1,11 @@
+{
+  "presubmit": [],
+  "postsubmit": [
+    {
+      "name": "AvatarPickerUnitTests"
+    },
+    {
+      "name": "AvatarPickerUITests"
+    }
+  ]
+}
