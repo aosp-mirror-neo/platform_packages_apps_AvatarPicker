@@ -25,6 +25,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
@@ -37,14 +38,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.android.avatarpicker.AvatarProviderApp
 import com.android.avatarpicker.ui.bottombar.BottomActionBar
-import com.android.avatarpicker.ui.details.DetailsCard
+import com.android.avatarpicker.ui.details.DetailsList
 import com.android.avatarpicker.ui.details.items.UiState
 import com.android.avatarpicker.ui.info.InfoCard
 import com.android.avatarpicker.ui.theme.AvatarPickerTheme
 
 class AvatarPickerActivity : ComponentActivity() {
 
-    @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
+    @OptIn(ExperimentalMaterial3WindowSizeClassApi::class, ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
@@ -52,6 +53,7 @@ class AvatarPickerActivity : ComponentActivity() {
         val activityViewModel = (application as AvatarProviderApp).let {
             ActivityViewModel(it.getGroupedSelectableItems(intent), it.getResultHandler())
         }
+        val itemViewComposer = (application as AvatarProviderApp).getItemViewComposer()
 
         setContent {
             AvatarPickerTheme {
@@ -59,28 +61,29 @@ class AvatarPickerActivity : ComponentActivity() {
                 Surface(
                     contentColor = MaterialTheme.colorScheme.surfaceContainer,
                 ) {
-                    val currentResult by activityViewModel.resultHandler.uiState.collectAsState()
                     val showOnePane = (windowSize.widthSizeClass != WindowWidthSizeClass.Expanded)
+                    val currentResult by activityViewModel.resultHandler.uiState.collectAsState()
                     Box(
                         Modifier.fillMaxSize(), contentAlignment = Alignment.Center
                     ) {
-
                         AdaptivePane(showOnePane = showOnePane,
                             startPane = { InfoCard(activityViewModel.infoViewModel) },
-                            endPane = { DetailsCard(activityViewModel.detailsViewModel) },
+                            endPane = {
+                                it.DetailsList(activityViewModel.detailsViewModel, itemViewComposer)
+                            },
                             bottom = {
-                            BottomActionBar(currentResult is UiState.Success<*>, {
-                                val result = activityViewModel.resultHandler.toResultIntent(
-                                    this@AvatarPickerActivity
-                                )
-                                activityViewModel.resultHandler.unselect()
-                                this@AvatarPickerActivity.setResult(RESULT_OK, result)
-                                this@AvatarPickerActivity.finish()
-                            }, {
-                                activityViewModel.resultHandler.unselect()
-                                this@AvatarPickerActivity.finish()
+                                BottomActionBar(currentResult is UiState.Success<*>, {
+                                    val result = activityViewModel.resultHandler.toResultIntent(
+                                        this@AvatarPickerActivity
+                                    )
+                                    activityViewModel.resultHandler.unselect()
+                                    this@AvatarPickerActivity.setResult(RESULT_OK, result)
+                                    this@AvatarPickerActivity.finish()
+                                }, {
+                                    activityViewModel.resultHandler.unselect()
+                                    this@AvatarPickerActivity.finish()
+                                })
                             })
-                        })
 
                         if (currentResult is UiState.Loading) {
                             Box(

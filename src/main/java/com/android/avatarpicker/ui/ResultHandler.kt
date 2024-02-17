@@ -21,8 +21,8 @@ import android.content.Intent
 import android.net.Uri
 import com.android.avatarpicker.ui.details.items.SelectableType
 import com.android.avatarpicker.ui.details.items.UiState
-import kotlinx.coroutines.flow.StateFlow
 import java.io.File
+import kotlinx.coroutines.flow.StateFlow
 
 
 interface ResultHandler {
