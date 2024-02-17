@@ -19,6 +19,7 @@ package com.android.avatarpicker.data
 import android.content.res.Resources
 import android.content.res.TypedArray
 import android.util.Log
+import androidx.annotation.StringRes
 
 fun Resources.safeObtainTypedArray(id: Int): TypedArray? {
     return try {
@@ -30,4 +31,11 @@ fun Resources.safeObtainTypedArray(id: Int): TypedArray? {
         Log.e(this.javaClass.name, exc.toString())
         null
     }
+}
+
+fun TypedArray.safeObtainStringRes(index: Int, @StringRes default: Int): Int {
+    if (index < length()) {
+        return getResourceId(index, default)
+    }
+    return default
 }

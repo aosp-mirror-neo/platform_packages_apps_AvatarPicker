@@ -17,22 +17,32 @@
 package com.android.avatarpicker.data
 
 import android.content.res.Resources
+import androidx.annotation.ArrayRes
 import androidx.core.content.res.getResourceIdOrThrow
 import com.android.avatarpicker.R
 import com.android.avatarpicker.data.entity.ResourceEntity
+import com.google.common.annotations.VisibleForTesting
 
 class IllustrationsRepository(private val resources: Resources) {
+    @VisibleForTesting
+    @ArrayRes
+    var imagesResId: Int = R.array.avatar_images
+
+    @VisibleForTesting
+    @ArrayRes
+    var imagesDescriptionsResId: Int = R.array.avatar_image_descriptions
+
     @Throws(IllegalArgumentException::class)
     suspend fun getItems(): List<ResourceEntity> {
         val items = mutableListOf<ResourceEntity>()
-        val avatarImages = resources.safeObtainTypedArray(R.array.avatar_images)?.also { images ->
+        val avatarImages = resources.safeObtainTypedArray(imagesResId)?.also { images ->
             val avatarImageDescriptions =
-                resources.safeObtainTypedArray(R.array.avatar_image_descriptions)
+                resources.safeObtainTypedArray(imagesDescriptionsResId)
             for (i in 0 until images.length())
                 items.add(
                     ResourceEntity(
                         images.getResourceIdOrThrow(i),
-                        avatarImageDescriptions?.getResourceId(
+                        avatarImageDescriptions?.safeObtainStringRes(
                             i, R.string.default_user_icon_description
                         ) ?: R.string.default_user_icon_description
                     )

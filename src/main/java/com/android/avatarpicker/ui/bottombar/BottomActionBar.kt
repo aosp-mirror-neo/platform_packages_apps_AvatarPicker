@@ -47,7 +47,7 @@ fun BottomActionBar(
             startIndent = 0.dp
         )
         Row(
-            Modifier.fillMaxWidth().fillMaxHeight().padding(start = 48.dp, end = 48.dp),
+            Modifier.fillMaxWidth().fillMaxHeight().padding(start = 24.dp, end = 24.dp),
             horizontalArrangement = Arrangement.spacedBy(
                 8.dp, Alignment.End
             ),
