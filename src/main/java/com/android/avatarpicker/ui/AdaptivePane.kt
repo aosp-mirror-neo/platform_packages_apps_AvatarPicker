@@ -18,40 +18,64 @@ package com.android.avatarpicker.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
+import androidx.compose.foundation.lazy.grid.LazyGridScope
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.Divider
 import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
+@ExperimentalMaterial3Api
 @Composable
 fun AdaptivePane(
     showOnePane: Boolean,
     startPane: @Composable () -> Unit,
-    endPane: @Composable () -> Unit,
+    endPane: (scope: LazyGridScope) -> Unit,
     bottom: @Composable () -> Unit
 ) {
-    Scaffold(containerColor = MaterialTheme.colorScheme.surfaceContainer, bottomBar = {
-        BottomAppBar(
-            containerColor = MaterialTheme.colorScheme.surfaceContainer
-        ) { bottom() }
-    }) { innerPadding ->
+    Scaffold(
+        containerColor = MaterialTheme.colorScheme.surfaceContainer,
+        bottomBar = {
+            if (showOnePane) {
+                BottomAppBar(containerColor = MaterialTheme.colorScheme.surfaceContainer) {
+                    bottom()
+                }
+            } else {
+                Column(modifier = Modifier.padding(start = 24.dp, end = 24.dp)) {
+                    BottomAppBar(containerColor = MaterialTheme.colorScheme.surfaceContainer) {
+                        bottom()
+                    }
+                }
+            }
+        }) { innerPadding ->
         Column(
             modifier = Modifier.statusBarsPadding().padding(innerPadding)
         ) {
             if (showOnePane) {
-                Column(
-                    modifier = Modifier.padding(start = 48.dp, end = 48.dp, top = 8.dp),
-                    verticalArrangement = Arrangement.spacedBy(24.dp)
+                LazyVerticalGrid(
+                    modifier = Modifier.padding(start = 24.dp, end = 24.dp, top = 8.dp),
+                    columns = GridCells.Fixed(4),
+                    horizontalArrangement = Arrangement.spacedBy(24.dp),
+                    verticalArrangement = Arrangement.spacedBy(24.dp),
+                    contentPadding = PaddingValues(bottom = 24.dp)
                 ) {
-                    startPane()
-                    endPane()
+                    item(span = { GridItemSpan(maxLineSpan) }) {
+                        Column {
+                            startPane()
+                        }
+                    }
+                    endPane(this)
                 }
             } else {
                 Row(
@@ -63,10 +87,19 @@ fun AdaptivePane(
                         modifier = Modifier.weight(1f)
                             .padding(start = 24.dp, end = 24.dp, top = 8.dp)
                     ) { startPane() }
-                    Column(
-                        modifier = Modifier.weight(1f).padding(start = 24.dp, end = 24.dp)
-                            .fillMaxHeight()
-                    ) { endPane() }
+
+                    LazyVerticalGrid(
+                        modifier = Modifier.weight(1f)
+                            .padding(top = 104.dp, start = 24.dp, end = 24.dp)
+                            .fillMaxHeight(),
+                        columns = GridCells.Fixed(4),
+                        horizontalArrangement = Arrangement.spacedBy(24.dp),
+                        verticalArrangement = Arrangement.spacedBy(24.dp),
+                        contentPadding = PaddingValues(bottom = 24.dp),
+                    ) {
+                        endPane(this)
+                    }
+
                 }
                 Divider(color = MaterialTheme.colorScheme.primary, thickness = 1.dp)
             }
