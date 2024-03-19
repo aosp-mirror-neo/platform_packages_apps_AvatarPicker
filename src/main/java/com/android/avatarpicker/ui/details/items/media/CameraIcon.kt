@@ -31,7 +31,7 @@ import com.android.avatarpicker.ui.details.items.UriTypedItem
 @Composable
 fun CameraIcon(viewModel: ResourceViewModel, resultHandler: ResultHandler) {
     val cropResult = rememberLauncherForCropActivity { uri ->
-        uri?.let { resultHandler.onSelect(UriTypedItem(viewModel.typeId, it)) } ?: UiState.None()
+        uri?.let { resultHandler.onSelect(UriTypedItem(viewModel.typeId, it)) } ?: resultHandler.unselect()
     }
     val contentUri: Uri = resultHandler.getContentUri()
     val avatarSizeInPixels = TypedValue.applyDimension(
