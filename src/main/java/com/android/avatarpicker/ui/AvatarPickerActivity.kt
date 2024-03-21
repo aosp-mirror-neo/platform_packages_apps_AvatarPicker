@@ -37,6 +37,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.android.avatarpicker.AvatarProviderApp
+import com.android.avatarpicker.domain.CAMERA
+import com.android.avatarpicker.domain.PHOTO_PICKER
 import com.android.avatarpicker.ui.bottombar.BottomActionBar
 import com.android.avatarpicker.ui.details.DetailsList
 import com.android.avatarpicker.ui.details.items.UiState
@@ -63,6 +65,11 @@ class AvatarPickerActivity : ComponentActivity() {
                 ) {
                     val showOnePane = (windowSize.widthSizeClass != WindowWidthSizeClass.Expanded)
                     val currentResult by activityViewModel.resultHandler.uiState.collectAsState()
+                    activityViewModel.resultHandler.getSelected()?.typeId?.let { typeId: Int ->
+                        if (typeId == CAMERA || (typeId == PHOTO_PICKER)) {
+                            setResultAndFinish(activityViewModel.resultHandler)
+                        }
+                    }
                     Box(
                         Modifier.fillMaxSize(), contentAlignment = Alignment.Center
                     ) {
@@ -73,12 +80,7 @@ class AvatarPickerActivity : ComponentActivity() {
                             },
                             bottom = {
                                 BottomActionBar(currentResult is UiState.Success<*>, {
-                                    val result = activityViewModel.resultHandler.toResultIntent(
-                                        this@AvatarPickerActivity
-                                    )
-                                    activityViewModel.resultHandler.unselect()
-                                    this@AvatarPickerActivity.setResult(RESULT_OK, result)
-                                    this@AvatarPickerActivity.finish()
+                                    setResultAndFinish(activityViewModel.resultHandler)
                                 }, {
                                     activityViewModel.resultHandler.unselect()
                                     this@AvatarPickerActivity.finish()
@@ -102,5 +104,12 @@ class AvatarPickerActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    fun setResultAndFinish(resultHandler: ResultHandler){
+        val result = resultHandler.toResultIntent(this)
+        resultHandler.unselect()
+        this.setResult(RESULT_OK, result)
+        this.finish()
     }
 }
