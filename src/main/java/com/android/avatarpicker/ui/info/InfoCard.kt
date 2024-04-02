@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.dp
 fun InfoCard(model: InfoViewModel) {
     Image(
         painter = painterResource(id = model.icon),
-        contentDescription = stringResource(id = model.titleId),
+        contentDescription = null,
         colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.primary),
         modifier = Modifier.size(48.dp)
     )
