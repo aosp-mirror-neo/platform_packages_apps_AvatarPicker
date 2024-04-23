@@ -16,6 +16,7 @@
 
 package com.android.avatarpicker.ui
 
+import com.android.avatarpicker.domain.applyFixReadBackOrderFlag
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -83,10 +84,9 @@ fun AdaptivePane(
                         .padding(start = 24.dp, end = 24.dp, top = 24.dp),
                     horizontalArrangement = Arrangement.spacedBy(24.dp)
                 ) {
-                    Column(
-                        modifier = Modifier.weight(1f)
-                            .padding(start = 24.dp, end = 24.dp, top = 8.dp)
-                    ) { startPane() }
+                    Column(modifier = Modifier.weight(1f)
+                        .padding(start = 24.dp, end = 24.dp, top = 8.dp)
+                        .applyFixReadBackOrderFlag()) { startPane() }
 
                     LazyVerticalGrid(
                         modifier = Modifier.weight(1f)
