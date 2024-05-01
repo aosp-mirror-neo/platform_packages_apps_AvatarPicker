@@ -19,7 +19,24 @@ package com.android.avatarpicker.domain
 import android.multiuser.Flags
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.isTraversalGroup
+import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.foundation.clickable
 
-fun Modifier.applyFixReadBackOrderFlag() =
+fun Modifier.applyReadBackOrder() =
     if (Flags.fixAvatarPickerReadBackOrder()) this.semantics { isTraversalGroup = true } else this
+
+fun Modifier.applySelectable(isSelected: Boolean, select:() ->Unit): Modifier {
+    if (Flags.fixAvatarPickerSelectedReadBack()) {
+        if (isSelected)
+            return this.semantics {
+                selected = isSelected
+                role = Role.Button
+            }
+        else
+            return this.semantics{}.clickable{select()}
+    }
+    return this.clickable{select()}
+}
