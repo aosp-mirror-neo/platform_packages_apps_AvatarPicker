@@ -17,12 +17,12 @@
 package com.android.avatarpicker.ui.details.items
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import com.android.avatarpicker.domain.applySelectable
 
 @Composable
 fun ColoredIconWithDescription(
@@ -31,7 +31,6 @@ fun ColoredIconWithDescription(
     Image(painter = painterResource(id = viewModel.drawableId),
         contentDescription = stringResource(id = viewModel.descriptionId),
         colorFilter = viewModel.color?.let { ColorFilter.tint(color = Color(it)) },
-        modifier = GetDefaultIconModifier().clickable {
-            select()
-        })
+        modifier = GetDefaultIconModifier()
+            .applySelectable(viewModel.isSelected, select))
 }
