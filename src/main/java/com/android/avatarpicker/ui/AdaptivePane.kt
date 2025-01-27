@@ -41,6 +41,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun AdaptivePane(
     showOnePane: Boolean,
+    columns: Int,
     startPane: @Composable () -> Unit,
     endPane: (scope: LazyGridScope) -> Unit,
     bottom: @Composable () -> Unit
@@ -66,7 +67,7 @@ fun AdaptivePane(
             if (showOnePane) {
                 LazyVerticalGrid(
                     modifier = Modifier.padding(start = 24.dp, end = 24.dp, top = 8.dp),
-                    columns = GridCells.Fixed(4),
+                    columns = GridCells.Fixed(columns),
                     horizontalArrangement = Arrangement.spacedBy(24.dp),
                     verticalArrangement = Arrangement.spacedBy(24.dp),
                     contentPadding = PaddingValues(bottom = 24.dp)
@@ -92,7 +93,7 @@ fun AdaptivePane(
                         modifier = Modifier.weight(1f)
                             .padding(top = 104.dp, start = 24.dp, end = 24.dp)
                             .fillMaxHeight(),
-                        columns = GridCells.Fixed(4),
+                        columns = GridCells.Fixed(columns),
                         horizontalArrangement = Arrangement.spacedBy(24.dp),
                         verticalArrangement = Arrangement.spacedBy(24.dp),
                         contentPadding = PaddingValues(bottom = 24.dp),
