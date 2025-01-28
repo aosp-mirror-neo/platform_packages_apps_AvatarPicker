@@ -22,11 +22,11 @@ import com.android.avatarpicker.ui.details.items.ItemViewComposer
 import com.android.avatarpicker.ui.details.items.SelectorWrapper
 
 fun LazyGridScope.DetailsList(detailsViewModel: DetailsViewModel,
-    itemViewComposer: ItemViewComposer) {
+    itemViewComposer: ItemViewComposer, columns: Int) {
     val items = detailsViewModel.groups.value
     var index = 0
     items.forEach { group ->
-        val remaining = group.size % 4
+        val remaining = group.size % columns
         group.forEach { viewModel ->
             index += 1
             item(key = index, contentType = viewModel.typeId) {
@@ -38,7 +38,7 @@ fun LazyGridScope.DetailsList(detailsViewModel: DetailsViewModel,
             }
         }
         if (remaining > 0) {
-            item(span = { GridItemSpan(4 - remaining) }) {
+            item(span = { GridItemSpan(columns - remaining) }) {
                 // invisible break between group
             }
         }

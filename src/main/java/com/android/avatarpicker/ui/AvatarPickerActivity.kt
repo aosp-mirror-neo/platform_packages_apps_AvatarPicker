@@ -35,6 +35,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.android.avatarpicker.AvatarProviderApp
 import com.android.avatarpicker.domain.CAMERA
@@ -44,6 +45,7 @@ import com.android.avatarpicker.ui.details.DetailsList
 import com.android.avatarpicker.ui.details.items.UiState
 import com.android.avatarpicker.ui.info.InfoCard
 import com.android.avatarpicker.ui.theme.AvatarPickerTheme
+import android.util.DisplayMetrics
 
 class AvatarPickerActivity : ComponentActivity() {
 
@@ -73,10 +75,14 @@ class AvatarPickerActivity : ComponentActivity() {
                     Box(
                         Modifier.fillMaxSize(), contentAlignment = Alignment.Center
                     ) {
+                        val display = LocalContext.current.resources.displayMetrics
+                        val defaultDensity = DisplayMetrics.DENSITY_DEVICE_STABLE.toFloat()  / DisplayMetrics.DENSITY_DEFAULT.toFloat()
+                        val columns  = (4 * defaultDensity / display.density).toInt()
                         AdaptivePane(showOnePane = showOnePane,
+                            columns,
                             startPane = { InfoCard(activityViewModel.infoViewModel) },
                             endPane = {
-                                it.DetailsList(activityViewModel.detailsViewModel, itemViewComposer)
+                                it.DetailsList(activityViewModel.detailsViewModel, itemViewComposer, columns)
                             },
                             bottom = {
                                 BottomActionBar(currentResult is UiState.Success<*>, {
