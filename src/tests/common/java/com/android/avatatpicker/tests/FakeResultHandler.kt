@@ -31,8 +31,8 @@ class FakeResultHandler : ResultHandler {
     override val uiState = _uiState.asStateFlow()
 
     override fun <T : SelectableType> onSelect(result: T) {
-        getSelected()?.isSelected = false
-        result.isSelected = true
+        getSelected()?.unselect()
+        result.select()
         _uiState.value = UiState.Success(result)
     }
 

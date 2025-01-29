@@ -30,6 +30,7 @@ import com.android.avatarpicker.ui.details.items.UriTypedItem
 import java.io.File
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import androidx.compose.runtime.getValue
 
 class ResultHandlerImpl(context: Context) : ResultHandler {
     private val resultFile: File
@@ -38,8 +39,8 @@ class ResultHandlerImpl(context: Context) : ResultHandler {
     override val uiState = _uiState.asStateFlow()
 
     override fun <T : SelectableType> onSelect(result: T) {
-        getSelected()?.isSelected = false
-        result.isSelected = true
+        getSelected()?.unselect()
+        result.select()
         _uiState.value = UiState.Success(result)
     }
 

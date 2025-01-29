@@ -18,6 +18,8 @@ package com.android.avatarpicker.ui.details.items
 
 import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.android.avatarpicker.domain.applySelectable
@@ -27,8 +29,9 @@ fun DrawableWithDescription(
     viewModel: ResourceViewModel, select: () -> Unit
 ) {
     val painter = painterResource(id = viewModel.drawableId)
+    val isSelected: Boolean by viewModel.isSelected.collectAsState()
     Image(painter = painter,
         contentDescription = stringResource(id = viewModel.descriptionId),
         modifier = GetDefaultImageModifier()
-            .applySelectable(viewModel.isSelected, select))
+            .applySelectable(isSelected, select))
 }
