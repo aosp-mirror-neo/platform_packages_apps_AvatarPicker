@@ -15,6 +15,19 @@
  */
 package com.android.avatarpicker.ui.details.items
 
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+
 open class SelectableType(
-    val typeId: Int, var isSelected: Boolean = false
-)
+    val typeId: Int, selected: Boolean = false
+) {
+    private val _isSelected = MutableStateFlow<Boolean>(selected)
+    val isSelected = _isSelected.asStateFlow()
+    fun select() {
+        _isSelected.value = true
+    }
+    fun unselect() {
+        _isSelected.value = false
+    }
+}
