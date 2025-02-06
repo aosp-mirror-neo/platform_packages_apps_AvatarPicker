@@ -18,6 +18,8 @@ package com.android.avatarpicker.ui.details.items
 
 import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
@@ -28,9 +30,10 @@ import com.android.avatarpicker.domain.applySelectable
 fun ColoredIconWithDescription(
     viewModel: ResourceViewModel, select: () -> Unit
 ) {
+    val isSelected: Boolean by viewModel.isSelected.collectAsState()
     Image(painter = painterResource(id = viewModel.drawableId),
         contentDescription = stringResource(id = viewModel.descriptionId),
         colorFilter = viewModel.color?.let { ColorFilter.tint(color = Color(it)) },
         modifier = GetDefaultIconModifier()
-            .applySelectable(viewModel.isSelected, select))
+            .applySelectable(isSelected, select))
 }

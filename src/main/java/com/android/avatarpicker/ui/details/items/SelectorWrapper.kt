@@ -15,7 +15,7 @@
  */
 package com.android.avatarpicker.ui.details.items
 
-import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
@@ -28,35 +28,36 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Done
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import kotlinx.coroutines.flow.StateFlow
 
 @Composable
-fun SelectorWrapper(isSelected: Boolean, content: @Composable () -> Unit) {
+fun SelectorWrapper(selected: StateFlow<Boolean>, content: @Composable () -> Unit) {
+    val isSelected by selected.collectAsState()
+    val alpha by animateFloatAsState(if (isSelected) 1f else 0f, label = "alpha")
     Box(Modifier.fillMaxSize()) {
         content()
-        AnimatedVisibility(
-            isSelected,
-            Modifier.matchParentSize(),
-            enter = fadeIn(initialAlpha = .3f),
-            exit = fadeOut(targetAlpha = .3f)
+        Box(
+            modifier = Modifier.matchParentSize()
+                .graphicsLayer(alpha = alpha)
+                .background(MaterialTheme.colorScheme.scrim.copy(.32f), CircleShape),
+            contentAlignment = Alignment.Center
         ) {
-            Box(
-                modifier = Modifier.matchParentSize()
-                    .background(MaterialTheme.colorScheme.scrim.copy(.32f), CircleShape),
-                contentAlignment = Alignment.Center
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Done,
-                    contentDescription = null,
-                    modifier = Modifier.background(
-                        MaterialTheme.colorScheme.primaryContainer, CircleShape
-                    ).padding(8.dp).size(16.dp),
-                    tint = MaterialTheme.colorScheme.primary
-                )
-            }
+            Icon(
+                imageVector = Icons.Default.Done,
+                contentDescription = null,
+                modifier = Modifier
+                    .graphicsLayer(alpha = alpha)
+                    .background(MaterialTheme.colorScheme.primaryContainer, CircleShape)
+                    .size(32.dp).padding(8.dp),
+                tint = MaterialTheme.colorScheme.primary
+            )
         }
     }
 }

@@ -55,7 +55,7 @@ class DetailsCardTest {
                     verticalArrangement = Arrangement.spacedBy(24.dp),
                     contentPadding = PaddingValues(bottom = 24.dp)
                 ) {
-                    DetailsList(model, ItemViewComposerImpl())
+                    DetailsList(model, ItemViewComposerImpl(), 4)
                 }
             }
         }
@@ -81,7 +81,7 @@ class DetailsCardTest {
                     verticalArrangement = Arrangement.spacedBy(24.dp),
                     contentPadding = PaddingValues(bottom = 24.dp)
                 ) {
-                    DetailsList(model, ItemViewComposerImpl())
+                    DetailsList(model, ItemViewComposerImpl(), 4)
                 }
             }
         }
