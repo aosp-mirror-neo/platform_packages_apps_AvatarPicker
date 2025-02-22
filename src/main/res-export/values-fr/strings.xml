@@ -20,7 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="8177270961671323697">"Outil de sélection d\'avatars"</string>
-    <string name="avatar_picker_title" msgid="557920681111084237">"Choisir une photo"</string>
+    <string name="avatar_picker_title" msgid="557920681111084237">"Choisissez une photo"</string>
     <string name="user_image_take_photo" msgid="95128854106654908">"Prendre une photo"</string>
     <string name="user_image_choose_photo" msgid="1705074212740055639">"Choisir une image"</string>
     <string name="user_image_photo_selector" msgid="6810039483906384177">"Sélectionner la photo"</string>
