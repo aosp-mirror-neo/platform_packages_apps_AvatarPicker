@@ -25,7 +25,7 @@
     <string name="user_image_choose_photo" msgid="1705074212740055639">"Valitse kuva"</string>
     <string name="user_image_photo_selector" msgid="6810039483906384177">"Valitse kuva"</string>
     <string name="default_user_icon_description" msgid="102085856940412685">"Oletuskäyttäjäkuvake"</string>
-    <string name="cancel" msgid="939074129054561480">"Peruuta"</string>
+    <string name="cancel" msgid="939074129054561480">"Peru"</string>
     <string name="back" msgid="9180928429284474094">"Takaisin"</string>
     <string name="done" msgid="3529937494606458545">"Valmis"</string>
 </resources>
