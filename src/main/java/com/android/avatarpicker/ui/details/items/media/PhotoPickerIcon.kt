@@ -53,29 +53,16 @@ fun PhotoPickerIcon(
     val photoPickerLauncher =
         rememberLauncherForActivityResult(ActivityResultContracts.PickVisualMedia()) { result ->
             result?.let { selectedUri ->
-                if(Flags.fixAvatarPickerNotRespondingForNewUser()){
-                    try {
-                            contentResolver.openInputStream(selectedUri)?.use { inputStream ->
-                                contentResolver.openOutputStream(contentUri)?.use { outputStream ->
-                                    inputStream.copyTo(outputStream)
-                                    val cropIntent = getCropIntent(contentUri, avatarSizeInPixels)
-                                    cropResult.launch(cropIntent)
-                                } ?: resultHandler.unselect()
+                try {
+                        contentResolver.openInputStream(selectedUri)?.use { inputStream ->
+                            contentResolver.openOutputStream(contentUri)?.use { outputStream ->
+                                inputStream.copyTo(outputStream)
+                                val cropIntent = getCropIntent(contentUri, avatarSizeInPixels)
+                                cropResult.launch(cropIntent)
                             } ?: resultHandler.unselect()
-                        } catch (e: Exception) {
-                            resultHandler.onError(e)
-                        }
-                } else {
-                    val source = ImageDecoder.createSource(contentResolver, selectedUri)
-                    ImageDecoder.decodeBitmap(source).let { bitmap ->
-                        try {
-                            tempFile.saveBitmap(bitmap)
-                            val cropIntent = getCropIntent(contentUri, avatarSizeInPixels)
-                            cropResult.launch(cropIntent)
-                        } catch (exc: IOException) {
-                            resultHandler.onError(exc)
-                        }
-                    }
+                        } ?: resultHandler.unselect()
+                    } catch (e: Exception) {
+                        resultHandler.onError(e)
                 }
             } ?: resultHandler.unselect()
         }
