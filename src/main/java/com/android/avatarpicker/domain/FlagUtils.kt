@@ -26,10 +26,9 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.foundation.clickable
 
 fun Modifier.applyReadBackOrder() =
-    if (Flags.fixAvatarPickerReadBackOrder()) this.semantics { isTraversalGroup = true } else this
+    this.semantics { isTraversalGroup = true }
 
 fun Modifier.applySelectable(isSelected: Boolean, select:() ->Unit): Modifier {
-    if (Flags.fixAvatarPickerSelectedReadBack()) {
         if (isSelected)
             return this.semantics {
                 selected = isSelected
@@ -37,6 +36,4 @@ fun Modifier.applySelectable(isSelected: Boolean, select:() ->Unit): Modifier {
             }
         else
             return this.semantics{}.clickable{select()}
-    }
-    return this.clickable{select()}
 }
