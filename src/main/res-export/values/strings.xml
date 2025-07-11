@@ -21,6 +21,11 @@
   <!-- Title for a screen allowing the user to choose a profile picture. [CHAR LIMIT=NONE] -->
   <string name="avatar_picker_title">Choose a picture</string>
 
+  <!-- Subtitle for a screen allowing the user to choose a profile picture within setup wizard. [CHAR LIMIT=NONE] -->
+  <string name="avatar_picker_description">This picture will be visible to anyone who uses this device</string>
+  <!-- Button label for generic next action [CHAR LIMIT=20] -->
+  <string name="next">Next</string>
+
   <!-- An option in a photo selection dialog to take a new photo [CHAR LIMIT=50] -->
   <string name="user_image_take_photo">Take a photo</string>
   <!-- An option in a photo selection dialog to choose a pre-existing image [CHAR LIMIT=50] -->

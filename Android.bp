@@ -54,6 +54,12 @@ android_library {
         "androidx.compose.ui_ui",
         "androidx.compose.ui_ui-tooling",
         "androidx.lifecycle_lifecycle-viewmodel-compose",
+        "androidx.appcompat_appcompat",
+        "androidx.constraintlayout_constraintlayout-core",
+        "androidx.core_core-ktx",
+        "androidx.lifecycle_lifecycle-runtime-ktx",
+        "setupcompat",
+        "setupdesign",
     ],
 
     kotlincflags: ["-Xjvm-default=all"]
