@@ -27,5 +27,6 @@
     <string-array name="grant_read_uri_permissions_packages">
         <item name="settings"  translatable="false">com.android.settings</item>
         <item name="systemui" translatable="false">com.android.systemui</item>
+        <item name="setupwizard_desktop" translatable="false">com.google.android.desktop.setupwizard</item>
     </string-array>
 </resources>

@@ -18,6 +18,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.android.avatarpicker">
 
+  <uses-permission android:name="com.google.android.setupwizard.SETUP_COMPAT_SERVICE" />
+
   <application
       android:name=".AvatarPickerApp"
       android:allowBackup="true"
@@ -38,6 +40,18 @@
       <action android:name="com.android.avatarpicker.FULL_SCREEN_ACTIVITY" />
       <category android:name="android.intent.category.DEFAULT" />
     </intent-filter>
+    </activity>
+
+    <activity
+        android:name=".ui.AvatarPickerSetupWizardActivity"
+        android:exported="true"
+        android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|keyboardHidden"
+        android:theme="@style/SudThemeGlif.Light"
+        android:label="@string/avatar_picker_title">
+      <intent-filter>
+        <action android:name="com.android.avatarpicker.SETUP_WIZARD_ACTIVITY" />
+        <category android:name="android.intent.category.DEFAULT" />
+      </intent-filter>
     </activity>
 
     <provider
