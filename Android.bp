@@ -20,12 +20,13 @@ android_library {
     manifest: "AndroidManifest-Provider.xml",
 
     srcs: [
-    "src/main/java/com/android/avatarpicker/data/*.kt",
-    "src/main/java/com/android/avatarpicker/data/**/*.kt",
-    "src/main/java/com/android/avatarpicker/domain/*.kt",
-    "src/main/java/com/android/avatarpicker/ui/*.kt",
-    "src/main/java/com/android/avatarpicker/ui/**/*.kt",
-    "src/main/java/com/android/avatarpicker/AvatarProviderApp.kt"],
+        "src/main/java/com/android/avatarpicker/data/*.kt",
+        "src/main/java/com/android/avatarpicker/data/**/*.kt",
+        "src/main/java/com/android/avatarpicker/domain/*.kt",
+        "src/main/java/com/android/avatarpicker/ui/*.kt",
+        "src/main/java/com/android/avatarpicker/ui/**/*.kt",
+        "src/main/java/com/android/avatarpicker/AvatarProviderApp.kt",
+    ],
 
     resource_dirs: ["src/main/res-export"],
 
@@ -62,7 +63,7 @@ android_library {
         "setupdesign",
     ],
 
-    kotlincflags: ["-Xjvm-default=all"]
+    kotlincflags: ["-Xjvm-default=all"],
 }
 
 android_app {
@@ -79,26 +80,29 @@ android_app {
 
     optimize: {
         enabled: true,
+        optimize: true,
+        shrink_resources: true,
     },
+
     static_libs: [
-            "AvatarProviderLib",
-            "androidx.activity_activity-compose",
-            "androidx.annotation_annotation",
-            "androidx.appcompat_appcompat",
-            "androidx.compose.animation_animation-graphics",
-            "androidx.compose.animation_animation-core",
-            "androidx.constraintlayout_constraintlayout-compose",
-            "androidx.constraintlayout_constraintlayout-core",
-            "androidx.compose.foundation_foundation",
-            "androidx.compose.material_material-icons-core",
-            "androidx.compose.material_material-icons-extended",
-            "androidx.compose.material3_material3",
-            "androidx.compose.material3_material3-window-size-class",
-            "androidx.compose.runtime_runtime",
-            "androidx.compose.ui_ui",
-            "androidx.compose.ui_ui-tooling",
-            "androidx.lifecycle_lifecycle-viewmodel-compose",
-            "androidx.lifecycle_lifecycle-viewmodel-ktx",
+        "AvatarProviderLib",
+        "androidx.activity_activity-compose",
+        "androidx.annotation_annotation",
+        "androidx.appcompat_appcompat",
+        "androidx.compose.animation_animation-graphics",
+        "androidx.compose.animation_animation-core",
+        "androidx.constraintlayout_constraintlayout-compose",
+        "androidx.constraintlayout_constraintlayout-core",
+        "androidx.compose.foundation_foundation",
+        "androidx.compose.material_material-icons-core",
+        "androidx.compose.material_material-icons-extended",
+        "androidx.compose.material3_material3",
+        "androidx.compose.material3_material3-window-size-class",
+        "androidx.compose.runtime_runtime",
+        "androidx.compose.ui_ui",
+        "androidx.compose.ui_ui-tooling",
+        "androidx.lifecycle_lifecycle-viewmodel-compose",
+        "androidx.lifecycle_lifecycle-viewmodel-ktx",
     ],
 
     optional_uses_libs: [
@@ -106,7 +110,7 @@ android_app {
         "androidx.window.sidecar",
     ],
 
-    kotlincflags: ["-Xjvm-default=all"]
+    kotlincflags: ["-Xjvm-default=all"],
 }
 
 
@@ -123,7 +127,10 @@ android_test {
         "src/tests/unit/java/**/*.kt",
         "src/tests/common/java/**/*.kt",
     ],
-    resource_dirs: ["src/main/res", "src/tests/common/res"],
+    resource_dirs: [
+        "src/main/res",
+        "src/tests/common/res",
+    ],
 
     static_libs: [
         "AvatarProviderLib",
@@ -155,7 +162,10 @@ android_test {
         "src/tests/ui/java/**/*.kt",
         "src/tests/common/java/**/*.kt",
     ],
-    resource_dirs: ["src/main/res", "src/tests/common/res"],
+    resource_dirs: [
+        "src/main/res",
+        "src/tests/common/res",
+    ],
 
     static_libs: [
         "AvatarProviderLib",
@@ -172,4 +182,6 @@ android_test {
 
     kotlincflags: ["-Xjvm-default=all"],
     test_suites: ["device-tests"],
+
+
 }
