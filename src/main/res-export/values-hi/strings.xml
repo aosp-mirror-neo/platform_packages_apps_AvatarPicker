@@ -21,6 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="8177270961671323697">"अवतार पिकर"</string>
     <string name="avatar_picker_title" msgid="557920681111084237">"कोई फ़ोटो चुनें"</string>
+    <string name="avatar_picker_description" msgid="1728863326137636962">"यह फ़ोटो इस डिवाइस का इस्तेमाल करने वाले सभी लोगों को दिखेगी"</string>
+    <string name="next" msgid="1822850691311433085">"आगे बढ़ें"</string>
     <string name="user_image_take_photo" msgid="95128854106654908">"फ़ोटो खींचें"</string>
     <string name="user_image_choose_photo" msgid="1705074212740055639">"इमेज चुनें"</string>
     <string name="user_image_photo_selector" msgid="6810039483906384177">"फ़ोटो चुनें"</string>

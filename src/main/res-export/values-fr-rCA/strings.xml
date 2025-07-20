@@ -21,6 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="8177270961671323697">"Sélecteur d\'avatar"</string>
     <string name="avatar_picker_title" msgid="557920681111084237">"Choisissez une photo"</string>
+    <string name="avatar_picker_description" msgid="1728863326137636962">"Cette photo sera visible par toute personne qui utilise cet appareil"</string>
+    <string name="next" msgid="1822850691311433085">"Suivant"</string>
     <string name="user_image_take_photo" msgid="95128854106654908">"Prendre une photo"</string>
     <string name="user_image_choose_photo" msgid="1705074212740055639">"Sélectionner une image"</string>
     <string name="user_image_photo_selector" msgid="6810039483906384177">"Sélectionner une photo"</string>

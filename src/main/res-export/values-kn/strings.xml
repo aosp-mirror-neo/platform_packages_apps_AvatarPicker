@@ -21,6 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="8177270961671323697">"ಅವತಾರ್ ಪಿಕರ್"</string>
     <string name="avatar_picker_title" msgid="557920681111084237">"ಚಿತ್ರವೊಂದನ್ನು ಆಯ್ಕೆಮಾಡಿ"</string>
+    <string name="avatar_picker_description" msgid="1728863326137636962">"ಈ ಸಾಧನವನ್ನು ಬಳಸುವ ಯಾರಿಗಾದರೂ ಈ ಚಿತ್ರ ಗೋಚರಿಸುತ್ತದೆ"</string>
+    <string name="next" msgid="1822850691311433085">"ಮುಂದಿನದು"</string>
     <string name="user_image_take_photo" msgid="95128854106654908">"ಫೋಟೋವನ್ನು ಸೆರೆಹಿಡಿಯಿರಿ"</string>
     <string name="user_image_choose_photo" msgid="1705074212740055639">"ಚಿತ್ರವನ್ನು ಆಯ್ಕೆಮಾಡಿ"</string>
     <string name="user_image_photo_selector" msgid="6810039483906384177">"ಫೋಟೋ ಆಯ್ಕೆಮಾಡಿ"</string>
