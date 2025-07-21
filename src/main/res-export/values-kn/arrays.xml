@@ -24,5 +24,6 @@
   <string-array name="grant_read_uri_permissions_packages">
     <item msgid="6098340083718667703">"com.android.ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</item>
     <item msgid="1615842176281400239">"com.android.systemui"</item>
+    <item msgid="6106236702644318977">"com.google.android.desktop.setupwizard"</item>
   </string-array>
 </resources>

@@ -21,6 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="8177270961671323697">"અવતાર પિકર"</string>
     <string name="avatar_picker_title" msgid="557920681111084237">"કોઈ ચિત્ર પસંદ કરો"</string>
+    <string name="avatar_picker_description" msgid="1728863326137636962">"આ ડિવાઇસનો ઉપયોગ કરનારી કોઈપણ વ્યક્તિ આ ચિત્ર જોઈ શકશે"</string>
+    <string name="next" msgid="1822850691311433085">"આગળ"</string>
     <string name="user_image_take_photo" msgid="95128854106654908">"ફોટો લો"</string>
     <string name="user_image_choose_photo" msgid="1705074212740055639">"છબી પસંદ કરો"</string>
     <string name="user_image_photo_selector" msgid="6810039483906384177">"ફોટો પસંદ કરો"</string>
