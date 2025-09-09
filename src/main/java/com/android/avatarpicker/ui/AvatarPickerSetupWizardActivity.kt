@@ -47,6 +47,7 @@ import com.google.android.setupcompat.template.FooterButton
 import com.google.android.setupcompat.template.FooterButton.ButtonType
 import com.google.android.setupdesign.GlifLayout
 import com.google.android.setupdesign.util.ThemeHelper
+import androidx.compose.foundation.layout.heightIn
 
 class AvatarPickerSetupWizardActivity : AppCompatActivity() {
 
@@ -112,7 +113,7 @@ class AvatarPickerSetupWizardActivity : AppCompatActivity() {
 
             LazyVerticalGrid(
                 modifier = Modifier
-                    .fillMaxHeight()
+                    .heightIn(max = 1500.dp)
                     .padding(top = 0.dp, start = 24.dp, end = 24.dp),
                 columns = GridCells.Fixed(columns),
                 horizontalArrangement = Arrangement.spacedBy(24.dp),
