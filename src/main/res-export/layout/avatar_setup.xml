@@ -10,8 +10,7 @@
         <androidx.compose.ui.platform.ComposeView
             android:id="@+id/my_compose_view"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             />
 
 </com.google.android.setupdesign.GlifLayout>
