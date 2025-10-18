@@ -21,7 +21,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 
 data class ResourceEntity(
-    @DrawableRes val drawableId: Int,
-    @StringRes val descriptionId: Int,
-    @ColorInt val colorInt: Int? = null
+    @param:DrawableRes val drawableId: Int,
+    @param:StringRes val descriptionId: Int,
+    @param:ColorInt val colorInt: Int? = null
 )
