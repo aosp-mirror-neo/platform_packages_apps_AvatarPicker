@@ -47,6 +47,7 @@ import com.google.android.setupcompat.template.FooterButton
 import com.google.android.setupcompat.template.FooterButton.ButtonType
 import com.google.android.setupdesign.GlifLayout
 import com.google.android.setupdesign.util.ThemeHelper
+import androidx.compose.foundation.layout.heightIn
 
 class AvatarPickerSetupWizardActivity : AppCompatActivity() {
 
@@ -73,8 +74,7 @@ class AvatarPickerSetupWizardActivity : AppCompatActivity() {
         primaryButton.isEnabled = false
         mixin.setPrimaryButton(primaryButton)
 
-        // Filter PHOTO_PICKER from the getGroupedSelectableItems
-        // Todo(b431729208) Move the Filter of Photo Picker to dedicated class
+        // Filter PHOTO_PICKER & CAMERA from the getGroupedSelectableItems
         activityViewModel = (application as AvatarProviderApp).let { app ->
             val originalUseCase = app.getGroupedSelectableItems(intent)
             val resultHandler = app.getResultHandler()
@@ -84,7 +84,9 @@ class AvatarPickerSetupWizardActivity : AppCompatActivity() {
                     val originalGroupedItems = originalUseCase()
 
                     return originalGroupedItems.map { group ->
-                        group.filter { item -> item.typeId != PHOTO_PICKER }
+                        group.filter {
+                            item -> (item.typeId != PHOTO_PICKER) && (item.typeId != CAMERA)
+                        }
                     }
                 }
 
@@ -109,16 +111,9 @@ class AvatarPickerSetupWizardActivity : AppCompatActivity() {
             val currentResult by activityViewModel.resultHandler.uiState.collectAsState()
             primaryButton.isEnabled = currentResult is UiState.Success<*>
 
-            // Handle selections that trigger another activity immediately
-            activityViewModel.resultHandler.getSelected()?.typeId?.let { typeId ->
-                if (typeId == CAMERA) {
-                    setResultAndFinish(activityViewModel.resultHandler)
-                }
-            }
-
             LazyVerticalGrid(
                 modifier = Modifier
-                    .fillMaxHeight()
+                    .heightIn(max = 1500.dp)
                     .padding(top = 0.dp, start = 24.dp, end = 24.dp),
                 columns = GridCells.Fixed(columns),
                 horizontalArrangement = Arrangement.spacedBy(24.dp),

@@ -20,7 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="8177270961671323697">"Avatarkiezer"</string>
-    <string name="avatar_picker_title" msgid="557920681111084237">"Afbeelding kiezen"</string>
+    <string name="avatar_picker_title" msgid="557920681111084237">"Kies een afbeelding"</string>
     <string name="avatar_picker_description" msgid="1728863326137636962">"Deze foto is zichtbaar voor iedereen die dit apparaat gebruikt"</string>
     <string name="next" msgid="1822850691311433085">"Volgende"</string>
     <string name="user_image_take_photo" msgid="95128854106654908">"Een foto maken"</string>
