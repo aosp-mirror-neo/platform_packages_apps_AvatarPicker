@@ -26,7 +26,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class InfoViewModel(private val useCase: GroupedSelectableItemsUseCase, @DrawableRes val icon: Int, @StringRes val titleId: Int) : ViewModel() {
+class InfoViewModel(private val useCase: GroupedSelectableItemsUseCase, @param:DrawableRes val icon: Int, @param:StringRes val titleId: Int) : ViewModel() {
     private var _description: MutableStateFlow<String?> = MutableStateFlow(null)
     val description = _description.asStateFlow()
 
