@@ -20,8 +20,8 @@ import androidx.annotation.StringRes
 
 class ResourceViewModel(
     typeId: Int,
-    @DrawableRes val drawableId: Int,
-    @StringRes val descriptionId: Int,
+    @param:DrawableRes val drawableId: Int,
+    @param:StringRes val descriptionId: Int,
     val color: Int?,
 ) : SelectableType(typeId)
 
