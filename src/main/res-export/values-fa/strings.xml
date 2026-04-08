@@ -23,7 +23,7 @@
     <string name="avatar_picker_title" msgid="557920681111084237">"انتخاب عکس"</string>
     <string name="avatar_picker_description" msgid="1728863326137636962">"این تصویر برای همه افرادی که از این دستگاه استفاده می‌کنند قابل‌مشاهده خواهد بود"</string>
     <string name="next" msgid="1822850691311433085">"بعدی"</string>
-    <string name="user_image_take_photo" msgid="95128854106654908">"عکس گرفتن"</string>
+    <string name="user_image_take_photo" msgid="95128854106654908">"گرفتن عکس"</string>
     <string name="user_image_choose_photo" msgid="1705074212740055639">"انتخاب تصویر"</string>
     <string name="user_image_photo_selector" msgid="6810039483906384177">"انتخاب عکس"</string>
     <string name="default_user_icon_description" msgid="102085856940412685">"نماد کاربر پیش‌فرض"</string>
